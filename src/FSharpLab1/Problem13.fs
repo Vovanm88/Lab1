@@ -2,13 +2,12 @@ module Problem13
 
 open System.IO
 
-let numbersPath = 
+let numbersPath =
     Path.Combine(__SOURCE_DIRECTORY__, "..", "..", "resources", "0013_numbers.txt")
 
 
 let getNumbers path =
-    File.ReadAllLines path 
-    |> Array.map (fun line -> bigint.Parse(line.Trim()))
+    File.ReadAllLines path |> Array.map (fun line -> bigint.Parse(line.Trim()))
 
 
 let recursive () =
