@@ -19,7 +19,7 @@ jobs:
     - name: Setup .NET
       uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 9.0.102
+        dotnet-version: 8.0.x
     - name: Restore dependencies
       run: |
         dotnet restore
@@ -28,7 +28,6 @@ jobs:
       run: find . -type f -name "*.fs" -not -path "*obj*" | xargs dotnet fantomas --check
     - name: Lint
       run: |
-        set DOTNET_ROLL_FORWARD=latestMajor
         dotnet fsharplint lint src/FSharpLab1/FSharpLab1.fsproj
         dotnet fsharplint lint tests/FSharpLab1Tests/FSharpLab1Tests.fsproj
     - name: Build
